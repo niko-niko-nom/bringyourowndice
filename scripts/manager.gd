@@ -1,6 +1,6 @@
 extends Node
 
-@onready var buttonContainer = $VBoxContainer
+@onready var buttonContainer = $Control/ButtonContainer
 
 var lists = {
 	"SpeciesCategory": [
@@ -186,7 +186,8 @@ func start_generator():
 	show_next_list()
 
 func show_next_list():
-	buttonContainer.queue_free()
+	for child in buttonContainer.get_children():
+		child.queue_free()
 	
 	if current_list_index >= active_lists.size():
 		show_final_character()
@@ -195,15 +196,15 @@ func show_next_list():
 	var list_name = active_lists[current_list_index]
 	var options = lists[list_name]
 	
-	if options.size() <= 4:
+	if options.size() <= 6:
 		rolled_options = pick_random_options(options, 4)
-	elif options.size() <= 6:
-		rolled_options = pick_random_options(options, 6)
 	elif options.size() <= 8:
-		rolled_options = pick_random_options(options, 8)
+		rolled_options = pick_random_options(options, 6)
 	elif options.size() <= 10:
-		rolled_options = pick_random_options(options, 10)
+		rolled_options = pick_random_options(options, 8)
 	elif options.size() <= 12:
+		rolled_options = pick_random_options(options, 10)
+	elif options.size() <= 20:
 		rolled_options = pick_random_options(options, 12)
 	else:
 		rolled_options = pick_random_options(options, 20)
@@ -219,15 +220,12 @@ func user_picked(option):
 func display_options_to_user(list_name: String, rolled_options: Array):
 	print("Choose from list:", list_name)
 	
-	var newContainer = VBoxContainer.new()
-	add_child(newContainer)
-	buttonContainer = newContainer
-	
 	for i in range(rolled_options.size()):
 		var option = rolled_options[i]
 		
 		var button = Button.new()
 		button.text = option
+		button.custom_minimum_size = Vector2(1920/4, 0)
 		buttonContainer.add_child(button)
 		
 		button.pressed.connect(user_picked.bind(i))

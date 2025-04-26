@@ -1,0 +1,70 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d36sr5rkhw8er"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plqpr"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.59, 0.59, 0.59, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jt8jv"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.878431, 0.678431, 0.678431, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.87451, 0.87451, 0.87451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad2h7"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.807843, 0.52549, 0.572549, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.57, 0.3705, 0.40375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgirs"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.878431, 0.678431, 0.678431, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.809369, 0.526269, 0.571803, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc6qs"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.93, 0.7998, 0.7998, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.878431, 0.678431, 0.678431, 1)
+
+[resource]
+Button/colors/font_color = Color(0.207507, 0.113429, 0.137685, 1)
+Button/font_sizes/font_size = 24
+Button/styles/disabled = SubResource("StyleBoxFlat_plqpr")
+Button/styles/focus = SubResource("StyleBoxFlat_jt8jv")
+Button/styles/hover = SubResource("StyleBoxFlat_ad2h7")
+Button/styles/normal = SubResource("StyleBoxFlat_hgirs")
+Button/styles/pressed = SubResource("StyleBoxFlat_yc6qs")

@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://bsg0vkvnh5gil"]
+[gd_scene load_steps=2 format=3 uid="uid://bsg0vkvnh5gil"]
+
+[ext_resource type="Script" uid="uid://by6w7ypn1l1tn" path="res://scripts/manager.gd" id="1_5yxne"]
 
 [node name="Generator" type="Node2D"]
+script = ExtResource("1_5yxne")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1

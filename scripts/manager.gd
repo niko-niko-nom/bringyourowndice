@@ -1,5 +1,7 @@
 extends Node
 
+@onready var buttonContainer = $VBoxContainer
+
 var lists = {
 	"SpeciesCategory": [
 		"Humanoid", 
@@ -16,8 +18,7 @@ var lists = {
 		"Undead", 
 		"Draconic", 
 		"Elemental", 
-		"Mythological",
-	],
+		"Mythological",],
 	"HumanoidSubspecies": [ 
 		"Cnidarian", "Cyclopian", 
 		"Dwarf", 
@@ -31,8 +32,7 @@ var lists = {
 		"Tiefling", "Triton", "Troll", 
 		"Vedalken", 
 		"Werewolf", 
-		"Yuan-ti", 
-	],
+		"Yuan-ti", ],
 	"FurrySubspecies": [ 
 		"Aardvark", "Aardwolf", "African Wild Dog", "Akita", "Anteater", "Arctic Fox", "Armadillo", 
 		"Baboon", "Badger", "Bat", "Beaver", "Binturong", "Border Collie", "Bull Terrier", "Brown Bear", "Bunny", "Bobcat", 
@@ -52,8 +52,7 @@ var lists = {
 		"Rabbit", "Raccoon", "Rat", "Red Fox", "Red Panda", "Rhinoceros", "Rottweiler", 
 		"Sabertooth", "Serval", "Shiba Inu", "Shorthair Cat", "Shrew", "Siamese Cat", "Sifaka", "Silver Fox", "Skunk", "Sloth", "Snow Leopard", "Squirrel", "Stoat", "Sugar Glider", "Sun Bear", "Swift Fox", "Swine",  
 		"Tanuki", "Tapir", "Tasmanian Devil", "Thylacine", "Tiger", 
-		"Wallaby", "Weasel", "Wolf", "Wolverine", 
-	],
+		"Wallaby", "Weasel", "Wolf", "Wolverine", ],
 	"ScalySubspecies": [ 
 		"Alligator", "Anaconda", 
 		"Crocodile", "Caiman", "Chameleon", 
@@ -63,8 +62,7 @@ var lists = {
 		"Lizard", 
 		"Monitor Lizard", 
 		"Snake", "Serpent", 
-		"Turtle", "Tortoise", 
-	],
+		"Turtle", "Tortoise", ],
 	"AvianSubspecies": [ 
 		"Aarakocra", "Albatross", 
 		"Blue Jay", 
@@ -82,8 +80,7 @@ var lists = {
 		"Raptor", "Robin", 
 		"Seagull", "Secretary Bird", "Sparrow", "Stork", "Swan", 
 		"Toucan", 
-		"Vulture", 
-	],
+		"Vulture",],
 	"UngulatesSubspecies": [ 
 		"Alpaca", "Antelope", 
 		"Buffalo", "Bison", 
@@ -98,8 +95,7 @@ var lists = {
 		"Pony", 
 		"Reindeer", 
 		"Sheep", 
-		"Zebra", 
-	],
+		"Zebra", ],
 	"AquaticSubspecies": [ 
 		"Axolotl", 
 		"Cephalopod", "Crab", "Crayfish", "Crustacean", 
@@ -113,8 +109,7 @@ var lists = {
 		"Porpoise", 
 		"Ray", 
 		"Seahorse", "Seal", "Shark", "Squid", 
-		"Whale", "Walrus", 
-	],
+		"Whale", "Walrus",],
 	"InsectoidSubspecies": [ 
 		"Arachnid", 
 		"Bumblebee", "Butterfly", 
@@ -123,46 +118,38 @@ var lists = {
 		"Mantid", "Moth", 
 		"Salamander", "Scorpion", "Snail", 
 		"Thri-kreen", 
-		"Wasp", 
-	],
+		"Wasp",],
 	"FairySubspecies": [ 
 		"Bugbear", 
 		"Erina", 
 		"Fairy", "Firbolg", 
 		"Pixie", 
-		"Satyr", 
-	],
+		"Satyr",	],
 	"TaurSubspecies": [ 
-		"Centaur", 
-	],
+		"Centaur",],
 	"ConstructSubspecies": [ 
 		"Autognome", 
 		"Geppettin", "Golem", "Gargoyle", 
-		"Warforged", "Wechselkind", 
-	],
+		"Warforged", "Wechselkind",],
 	"AmorphousSubspecies": [ 
 		"Plasmoid", 
-		"Changeling", 
-	],
+		"Changeling",],
 	"UndeadSubspecies": [ 
 		"Darakhul", "Disembodied", 
 		"Geleton", 
 		"Kalashtar", 
-		"Shade", 
-	],
+		"Shade", ],
 	"DraconicSubspecies": [ 
 		"Dragonborn", 
 		"Eastern Dragon", 
 		"Hydra", 
 		"Satarre", "Serpent Dragon", 
-		"Western Dragon", "Wyvern", "Water Dragon", 
-	],
+		"Western Dragon", "Wyvern", "Water Dragon", ],
 	"ElementalSubspecies": [ 
 		"Air Genasi", 
 		"Earth Genasi", 
 		"Fire Genasi", 
-		"Water Genasi", 
-	],
+		"Water Genasi",],
 	"MythologicalSubspecies": [ 
 		"Angel", 
 		"Cerberus", "Cockatrice", "Chupacabra", "Chimera", 
@@ -179,8 +166,7 @@ var lists = {
 		"Pegasus", "Phoenix", "Peryton", 
 		"Sasquatch", "Sphinx", "Succubus", 
 		"Unicorn", 
-		"Winged Unicorn", 
-	],
+		"Winged Unicorn",],
 }
 
 var active_lists = []
@@ -189,12 +175,19 @@ var final_character = {}
 
 var current_list_index = 0
 
+var rolled_options = []
+
+func _ready():
+	start_generator()
+
 func start_generator():
-	active_lists = lists
+	active_lists = ["SpeciesCategory"]
 	current_list_index = 0
 	show_next_list()
 
 func show_next_list():
+	buttonContainer.queue_free()
+	
 	if current_list_index >= active_lists.size():
 		show_final_character()
 		return
@@ -202,15 +195,42 @@ func show_next_list():
 	var list_name = active_lists[current_list_index]
 	var options = lists[list_name]
 	
-	var rolled_options = pick_random_options(options, 6)
+	if options.size() <= 4:
+		rolled_options = pick_random_options(options, 4)
+	elif options.size() <= 6:
+		rolled_options = pick_random_options(options, 6)
+	elif options.size() <= 8:
+		rolled_options = pick_random_options(options, 8)
+	elif options.size() <= 10:
+		rolled_options = pick_random_options(options, 10)
+	elif options.size() <= 12:
+		rolled_options = pick_random_options(options, 12)
+	else:
+		rolled_options = pick_random_options(options, 20)
 	
 	display_options_to_user(list_name, rolled_options)
 
 func user_picked(option):
 	var list_name = active_lists[current_list_index]
-	final_character[list_name] = option
+	final_character[list_name] = rolled_options[option]
 	current_list_index += 1
 	show_next_list()
+
+func display_options_to_user(list_name: String, rolled_options: Array):
+	print("Choose from list:", list_name)
+	
+	var newContainer = VBoxContainer.new()
+	add_child(newContainer)
+	buttonContainer = newContainer
+	
+	for i in range(rolled_options.size()):
+		var option = rolled_options[i]
+		
+		var button = Button.new()
+		button.text = option
+		buttonContainer.add_child(button)
+		
+		button.pressed.connect(user_picked.bind(i))
 
 func pick_random_options(options, amount):
 	var options_copy = options.duplicate()
@@ -218,4 +238,6 @@ func pick_random_options(options, amount):
 	return options_copy.slice(0, amount)
 
 func show_final_character():
-	print(final_character)
+	print("--- Final Character ---")
+	for key in final_character.keys():
+		print(str(key) + ": " + str(final_character[key]))

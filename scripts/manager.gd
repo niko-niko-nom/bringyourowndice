@@ -1,14 +1,21 @@
 extends Node
 
-@onready var buttonContainer = $Control/ButtonContainer
+@onready var buttonContainer = $CanvasLayer/CenterContainer/ButtonContainer
+@onready var titleContainer = $CanvasLayer/CategoryContainer/CategoryTitle
 
 var lists = {
-	"SpeciesCategory": [
+	"Gender Expression": [
+		"Masculine Genderless", "Feminine Genderless", "Neutral Genderless", 
+		"Masculine Male", "Feminine Male", "Neutral Male", 
+		"Masculine Female", "Feminine Female", "Neutral Female", 
+		"Masculine Non-Binary", "Feminine Non-Binary", "Neutral Non-Binary",
+		"Masculine Intersex", "Feminine Intersex", "Neutral Intersex", ],
+	"Species": [
 		"Humanoid", 
 		"Furry", 
 		"Scaly", 
 		"Avian", 
-		"Ungulates", 
+		"Ungulate", 
 		"Aquatic", 
 		"Insectoid",
 		"Fairy", 
@@ -19,8 +26,8 @@ var lists = {
 		"Draconic", 
 		"Elemental", 
 		"Mythological",],
-	"HumanoidSubspecies": [ 
-		"Cnidarian", "Cyclopian", 
+	"Humanoid Subspecies": [ 
+		"Cnidarian", "Cyclops", 
 		"Dwarf", 
 		"Elf",
 		"Gith", "Gnome", "Goblin", "Goliath", "Gobboc", "Golynn",
@@ -33,7 +40,7 @@ var lists = {
 		"Vedalken", 
 		"Werewolf", 
 		"Yuan-ti", ],
-	"FurrySubspecies": [ 
+	"Furry Subspecies": [ 
 		"Aardvark", "Aardwolf", "African Wild Dog", "Akita", "Anteater", "Arctic Fox", "Armadillo", 
 		"Baboon", "Badger", "Bat", "Beaver", "Binturong", "Border Collie", "Bull Terrier", "Brown Bear", "Bunny", "Bobcat", 
 		"Camel", "Capybara", "Cheetah", "Chimpanzee", "Chinchilla", "Chipmunk", "Civet", "Clouded Leopard", "Coatimundi", "Corgi", "Cougar", "Coyote", 
@@ -53,7 +60,7 @@ var lists = {
 		"Sabertooth", "Serval", "Shiba Inu", "Shorthair Cat", "Shrew", "Siamese Cat", "Sifaka", "Silver Fox", "Skunk", "Sloth", "Snow Leopard", "Squirrel", "Stoat", "Sugar Glider", "Sun Bear", "Swift Fox", "Swine",  
 		"Tanuki", "Tapir", "Tasmanian Devil", "Thylacine", "Tiger", 
 		"Wallaby", "Weasel", "Wolf", "Wolverine", ],
-	"ScalySubspecies": [ 
+	"Scaly Subspecies": [ 
 		"Alligator", "Anaconda", 
 		"Crocodile", "Caiman", "Chameleon", 
 		"Gecko", 
@@ -63,7 +70,7 @@ var lists = {
 		"Monitor Lizard", 
 		"Snake", "Serpent", 
 		"Turtle", "Tortoise", ],
-	"AvianSubspecies": [ 
+	"Avian Subspecies": [ 
 		"Aarakocra", "Albatross", 
 		"Blue Jay", 
 		"Chicken", "Cockatiel", "Crane", "Crow", 
@@ -81,7 +88,7 @@ var lists = {
 		"Seagull", "Secretary Bird", "Sparrow", "Stork", "Swan", 
 		"Toucan", 
 		"Vulture",],
-	"UngulatesSubspecies": [ 
+	"Ungulate Subspecies": [ 
 		"Alpaca", "Antelope", 
 		"Buffalo", "Bison", 
 		"Caribou", "Cow", 
@@ -96,7 +103,7 @@ var lists = {
 		"Reindeer", 
 		"Sheep", 
 		"Zebra", ],
-	"AquaticSubspecies": [ 
+	"Aquatic Subspecies": [ 
 		"Axolotl", 
 		"Cephalopod", "Crab", "Crayfish", "Crustacean", 
 		"Dolphin", 
@@ -110,7 +117,7 @@ var lists = {
 		"Ray", 
 		"Seahorse", "Seal", "Shark", "Squid", 
 		"Whale", "Walrus",],
-	"InsectoidSubspecies": [ 
+	"Insectoid Subspecies": [ 
 		"Arachnid", 
 		"Bumblebee", "Butterfly", 
 		"Caterpillar", 
@@ -119,38 +126,38 @@ var lists = {
 		"Salamander", "Scorpion", "Snail", 
 		"Thri-kreen", 
 		"Wasp",],
-	"FairySubspecies": [ 
+	"Fairy Subspecies": [ 
 		"Bugbear", 
 		"Erina", 
 		"Fairy", "Firbolg", 
 		"Pixie", 
 		"Satyr",	],
-	"TaurSubspecies": [ 
+	"Taur Subspecies": [ 
 		"Centaur",],
-	"ConstructSubspecies": [ 
+	"Construct Subspecies": [ 
 		"Autognome", 
 		"Geppettin", "Golem", "Gargoyle", 
 		"Warforged", "Wechselkind",],
-	"AmorphousSubspecies": [ 
+	"Amorphous Subspecies": [ 
 		"Plasmoid", 
 		"Changeling",],
-	"UndeadSubspecies": [ 
+	"Undead Subspecies": [ 
 		"Darakhul", "Disembodied", 
 		"Geleton", 
 		"Kalashtar", 
 		"Shade", ],
-	"DraconicSubspecies": [ 
+	"Draconic Subspecies": [ 
 		"Dragonborn", 
 		"Eastern Dragon", 
 		"Hydra", 
 		"Satarre", "Serpent Dragon", 
 		"Western Dragon", "Wyvern", "Water Dragon", ],
-	"ElementalSubspecies": [ 
+	"Elemental Subspecies": [ 
 		"Air Genasi", 
 		"Earth Genasi", 
 		"Fire Genasi", 
 		"Water Genasi",],
-	"MythologicalSubspecies": [ 
+	"Mythological Subspecies": [ 
 		"Angel", 
 		"Cerberus", "Cockatrice", "Chupacabra", "Chimera", 
 		"Daemon", 
@@ -181,17 +188,20 @@ func _ready():
 	start_generator()
 
 func start_generator():
-	active_lists = ["SpeciesCategory"]
+	active_lists = ["Gender Expression", "Species", ]
 	current_list_index = 0
 	show_next_list()
 
 func show_next_list():
+	
 	for child in buttonContainer.get_children():
 		child.queue_free()
 	
 	if current_list_index >= active_lists.size():
 		show_final_character()
 		return
+	
+	titleContainer.text = active_lists[current_list_index]
 	
 	var list_name = active_lists[current_list_index]
 	var options = lists[list_name]
@@ -215,6 +225,38 @@ func user_picked(option):
 	var list_name = active_lists[current_list_index]
 	final_character[list_name] = rolled_options[option]
 	current_list_index += 1
+	print(rolled_options[option])
+	if list_name == "Species":
+		if rolled_options[option] == "Humanoid":
+			active_lists.append("Humanoid Subspecies")
+		elif rolled_options[option] == "Furry":
+			active_lists.append("Furry Subspecies")
+		elif rolled_options[option] == "Scaly":
+			active_lists.append("Scaly Subspecies")
+		elif rolled_options[option] == "Avian":
+			active_lists.append("Avian Subspecies")
+		elif rolled_options[option] == "Ungulate":
+			active_lists.append("Ungulate Subspecies")
+		elif rolled_options[option] == "Aquatic":
+			active_lists.append("Aquatic Subspecies")
+		elif rolled_options[option] == "Insectoid":
+			active_lists.append("Insectoid Subspecies")
+		elif rolled_options[option] == "Fairy":
+			active_lists.append("Fairy Subspecies")
+		elif rolled_options[option] == "Taur":
+			active_lists.append("Taur Subspecies")
+		elif rolled_options[option] == "Construct":
+			active_lists.append("Construct Subspecies")
+		elif rolled_options[option] == "Amorphous":
+			active_lists.append("Amorphous Subspecies")
+		elif rolled_options[option] == "Undead":
+			active_lists.append("Undead Subspecies")
+		elif rolled_options[option] == "Draconic":
+			active_lists.append("Draconic Subspecies")
+		elif rolled_options[option] == "Elemental":
+			active_lists.append("Elemental Subspecies")
+		else: 
+			active_lists.append("Mythological Subspecies")
 	show_next_list()
 
 func display_options_to_user(list_name: String, rolled_options: Array):
@@ -224,9 +266,37 @@ func display_options_to_user(list_name: String, rolled_options: Array):
 		var option = rolled_options[i]
 		
 		var button = Button.new()
-		button.text = option
-		button.custom_minimum_size = Vector2(1920/4, 0)
+		button.custom_minimum_size = Vector2(1920/3, 1080/20)
 		buttonContainer.add_child(button)
+
+		var hbox = HBoxContainer.new()
+		hbox.anchor_right = 1
+		hbox.anchor_bottom = 1
+		hbox.grow_horizontal = Control.GROW_DIRECTION_END
+		button.add_child(hbox)
+
+		var number_label = RichTextLabel.new()
+		number_label.text = "(" + str(i + 1) + ")"
+		number_label.fit_content = true
+		number_label.scroll_active = false
+		number_label.autowrap_mode = 0
+		number_label.add_theme_font_size_override("font_size", 24)
+		number_label.add_theme_color_override("default_color", Color.WHITE)
+		number_label.custom_minimum_size = Vector2(100, 0)
+		number_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		number_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		hbox.add_child(number_label)
+
+		var option_label = RichTextLabel.new()
+		option_label.text = option
+		option_label.fit_content = true
+		option_label.scroll_active = false
+		option_label.autowrap_mode = 0
+		option_label.add_theme_font_size_override("font_size", 24)
+		option_label.add_theme_color_override("default_color", Color.WHITE)
+		option_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		option_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		hbox.add_child(option_label)
 		
 		button.pressed.connect(user_picked.bind(i))
 
@@ -239,3 +309,4 @@ func show_final_character():
 	print("--- Final Character ---")
 	for key in final_character.keys():
 		print(str(key) + ": " + str(final_character[key]))
+	get_tree().change_scene_to_file("res://scenes/finalcharacter.tscn")

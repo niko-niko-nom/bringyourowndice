@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://by45rcqk0x8an"]
+[gd_scene load_steps=5 format=3 uid="uid://by45rcqk0x8an"]
 
 [ext_resource type="Theme" uid="uid://ia3w2dvold64" path="res://themes/mainmenubuttons.tres" id="1_1rf0n"]
-[ext_resource type="Shader" uid="uid://ddhtmaugd1ky6" path="res://assets/shaders/homebutton.gdshader" id="1_10b3w"]
 [ext_resource type="Texture2D" uid="uid://c4t0g30yen2pk" path="res://assets/images/home-menu-ui-svgrepo-com.svg" id="1_krot7"]
 [ext_resource type="Script" uid="uid://bxbu6y3rf3scc" path="res://scripts/homebutton.gd" id="2_2kgit"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_10b3w"]
-shader = ExtResource("1_10b3w")
-shader_parameter/invert = false
+[ext_resource type="Material" uid="uid://bbvqeim3gxr3t" path="res://themes/hoverinvert.tres" id="3_10b3w"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -28,7 +24,7 @@ expand_icon = true
 script = ExtResource("2_2kgit")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/homebutton"]
-material = SubResource("ShaderMaterial_10b3w")
+material = ExtResource("3_10b3w")
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0

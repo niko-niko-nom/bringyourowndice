@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bbvqeim3gxr3t"]
+
+[ext_resource type="Shader" uid="uid://ddhtmaugd1ky6" path="res://assets/shaders/homebutton.gdshader" id="1_v6mqc"]
+
+[resource]
+shader = ExtResource("1_v6mqc")
+shader_parameter/invert = false

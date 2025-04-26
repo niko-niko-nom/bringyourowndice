@@ -62,9 +62,12 @@ border_color = Color(0.878431, 0.678431, 0.678431, 1)
 
 [resource]
 Button/colors/font_color = Color(0.207507, 0.113429, 0.137685, 1)
-Button/font_sizes/font_size = 24
+Button/font_sizes/font_size = 32
 Button/styles/disabled = SubResource("StyleBoxFlat_plqpr")
 Button/styles/focus = SubResource("StyleBoxFlat_jt8jv")
 Button/styles/hover = SubResource("StyleBoxFlat_ad2h7")
 Button/styles/normal = SubResource("StyleBoxFlat_hgirs")
 Button/styles/pressed = SubResource("StyleBoxFlat_yc6qs")
+Label/colors/font_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/selection_color = Color(1, 1, 1, 1)

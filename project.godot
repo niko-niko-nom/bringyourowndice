@@ -13,13 +13,27 @@ config_version=5
 config/name="BringYourOwnDice"
 config/description="Bring Your Own Dice is the ultimate character prompt generator."
 config/version="0.1"
+run/main_scene="uid://b5vd3xixwyxca"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dojvx0m7ts4rl"
+
+[autoload]
+
+Homebutton="*res://scenes/homebutton.tscn"
+Background="*res://scenes/background.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[editor]
+
+version_control/autoload_on_startup=true
+
+[gui]
+
+theme/custom_font="uid://dgojo34pidhsv"
 
 [rendering]
 

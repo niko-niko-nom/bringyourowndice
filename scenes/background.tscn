@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3oskcys62141"]
+
+[ext_resource type="Shader" uid="uid://82uq0x5vrd3t" path="res://assets/shaders/apple.gdshader" id="1_jougr"]
+[ext_resource type="Texture2D" uid="uid://cp44t0cwmm54b" path="res://assets/images/apple.png" id="2_cbsqf"]
+[ext_resource type="Script" uid="uid://bp4ptpdnrral6" path="res://scripts/scrolling_background.gd" id="3_wisxt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_reixx"]
+shader = ExtResource("1_jougr")
+shader_parameter/scroll_speed = Vector2(10, 10)
+shader_parameter/custom_time = 0.0
+shader_parameter/texture_scale = Vector2(1, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 792.0
+offset_bottom = 612.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+material = SubResource("ShaderMaterial_reixx")
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 1907.0
+offset_bottom = 1063.0
+texture = ExtResource("2_cbsqf")
+stretch_mode = 1
+script = ExtResource("3_wisxt")

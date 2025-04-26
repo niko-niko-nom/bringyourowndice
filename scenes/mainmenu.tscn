@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5vd3xixwyxca"]
+
+[ext_resource type="Theme" uid="uid://ia3w2dvold64" path="res://themes/mainmenubuttons.tres" id="2_natt5"]
+[ext_resource type="Theme" uid="uid://0q3e2a3bqnie" path="res://themes/quitbutton.tres" id="3_r3g3c"]
+[ext_resource type="Script" uid="uid://c1otve7315ybq" path="res://scripts/buttons.gd" id="4_3vvtq"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Control2" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1201.0
+offset_bottom = 835.0
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2"]
+custom_minimum_size = Vector2(1200, 500)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -538.0
+offset_right = 600.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 24
+script = ExtResource("4_3vvtq")
+
+[node name="generate" type="Button" parent="Control2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_natt5")
+text = "Start Prompt Generator"
+
+[node name="view" type="Button" parent="Control2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_natt5")
+text = "View Saved Prompts"
+
+[node name="quit" type="Button" parent="Control2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_r3g3c")
+text = "Quit To Desktop"
+
+[connection signal="pressed" from="Control2/VBoxContainer/generate" to="Control2/VBoxContainer" method="_on_generate_pressed"]
+[connection signal="pressed" from="Control2/VBoxContainer/view" to="Control2/VBoxContainer" method="_on_view_pressed"]
+[connection signal="pressed" from="Control2/VBoxContainer/quit" to="Control2/VBoxContainer" method="_on_quit_pressed"]

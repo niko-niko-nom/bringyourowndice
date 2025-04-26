@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://by45rcqk0x8an"]
+
+[ext_resource type="Theme" uid="uid://ia3w2dvold64" path="res://themes/mainmenubuttons.tres" id="1_1rf0n"]
+[ext_resource type="Shader" uid="uid://ddhtmaugd1ky6" path="res://assets/shaders/homebutton.gdshader" id="1_10b3w"]
+[ext_resource type="Texture2D" uid="uid://c4t0g30yen2pk" path="res://assets/images/home-menu-ui-svgrepo-com.svg" id="1_krot7"]
+[ext_resource type="Script" uid="uid://bxbu6y3rf3scc" path="res://scripts/homebutton.gd" id="2_2kgit"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10b3w"]
+shader = ExtResource("1_10b3w")
+shader_parameter/invert = false
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="homebutton" type="Button" parent="CanvasLayer"]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 125.0
+offset_bottom = 125.0
+theme = ExtResource("1_1rf0n")
+theme_override_colors/icon_hover_pressed_color = Color(0.878431, 0.878431, 0.878431, 1)
+theme_override_colors/icon_hover_color = Color(0.878431, 0.878431, 0.878431, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+keep_pressed_outside = true
+expand_icon = true
+script = ExtResource("2_2kgit")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/homebutton"]
+material = SubResource("ShaderMaterial_10b3w")
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 90.0
+offset_bottom = 90.0
+texture = ExtResource("1_krot7")
+expand_mode = 1
+
+[connection signal="focus_entered" from="CanvasLayer/homebutton" to="CanvasLayer/homebutton" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/homebutton" to="CanvasLayer/homebutton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/homebutton" to="CanvasLayer/homebutton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/homebutton" to="CanvasLayer" method="_on_button_pressed"]

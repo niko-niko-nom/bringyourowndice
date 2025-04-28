@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4d54448t7meh"]
+[gd_scene load_steps=3 format=3 uid="uid://b4d54448t7meh"]
 
 [ext_resource type="Script" uid="uid://r34ime85skes" path="res://scripts/finalcharacter.gd" id="1_hv88s"]
+[ext_resource type="Theme" uid="uid://d36sr5rkhw8er" path="res://themes/rolledoptions.tres" id="2_nue1b"]
 
 [node name="Finalcharacter" type="Node2D"]
 script = ExtResource("1_hv88s")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 805.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="savepromptbtn" type="Button" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_nue1b")
+text = "Save Prompt"
+
+[node name="startoverbtn" type="Button" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_nue1b")
+text = "Start Over"
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 755.0
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/savepromptbtn" to="." method="_on_savepromptbtn_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/startoverbtn" to="." method="_on_startoverbtn_pressed"]

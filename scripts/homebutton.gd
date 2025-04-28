@@ -5,7 +5,7 @@ extends Button
 func _process(_delta):
 	await get_tree().create_timer(0).timeout
 
-	if get_tree().current_scene.name == "MainMenu":
+	if get_tree().current_scene.name == "MainMenu" or get_tree().current_scene.name == "Finalcharacter":
 		hide()
 	else:
 		show()

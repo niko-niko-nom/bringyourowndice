@@ -127,13 +127,25 @@ var lists = {
 		"Thri-kreen", 
 		"Wasp",],
 	"Fairy Subspecies": [ 
-		"Bugbear", 
-		"Erina", 
-		"Fairy", "Firbolg", 
-		"Pixie", 
-		"Satyr",	],
+		"Asrai", "Abada", "Aralez", "Aziza", "Al Ana", "Anguane", "Alp", 
+		"Bugbear", "Boggle", "Bonehoarder", "Banshee", "Bluecap", "Brag", "Brownie", 
+		"Clurichaun", "Chaneque", 
+		"Dobie", "Dryad", "Drac", "Drude", "Duende", "Dunnie", 
+		"Erina", "Encantado", 
+		"Fairy", "Firbolg", "Faerie Dragon", "Feldgeist", "Feufollet", "Fossegrim", "Fuath", 
+		"Gancanagh", 
+		"Hag", "Huli Jing", "Hob", 
+		"Kelpie", "Kodama", 
+		"Mogwai", 
+		"Nymph", 
+		"Pixie", "Pari Pari", "Peri", "Peris", 
+		"Satyr", "Sylph", "Spriggan", "Sídhe", 
+		"Treant", "Tien", 
+		"Will o' the Wisp", 
+		"Yumboes", "Yaksha", 
+		"Zites", ],
 	"Taur Subspecies": [ 
-		"Centaur",],
+		"Centaur", "Equitaur", "Felitaur", "Foxtaur", "Skunktaur", "Dogtaur", ],
 	"Construct Subspecies": [ 
 		"Autognome", 
 		"Geppettin", "Golem", "Gargoyle", 
@@ -174,6 +186,71 @@ var lists = {
 		"Sasquatch", "Sphinx", "Succubus", 
 		"Unicorn", 
 		"Winged Unicorn",],
+	"Primary Color": [ 
+		"Blood Red", "Crimson", "Dark Red", "Fire Brick", "Maroon", "Scarlet", "Tuscan Red", 
+		"Amaranth", "Bubblegum Pink", "Deep Pink", "Hot Pink", "Magenta", "Raspberry", "Rose", "Salmon", 
+		"Apricot", "Bright Orange", "Coral", "Hyperbolic Orange", "India Saffron", "Mango", "Orange Red", "Peach", "Persimmon", "Vermillion", "Xanthous", 
+		"Auburn", "Bronze", "Burlywood", "Chestnut", "Chocolate", "Coffee", "Copper", "Mahogany", "Ochre", "Pullman Brown", "Russet", "Saddle Brown", "Sepia", "Taupe", 
+		"Amber", "Cream", "Gold", "Khaki", "Lemon", "Light Yellow", "Macaroni and Cheese", "Marigold", "Mustard", "Saffron", 
+		"Aquamarine", "Chartreuse", "Dark Green", "Erin", "Forest Green", "India Green", "Jade", "Lime", "Mint", "Olive", "Persian Green", "Spring Green", "Teal", "Viridian", "Xanadu", "Zomp", 
+		"Abyssal Blue", "Aqua", "Azure", "Baby Blue", "Blue Gray", "Cerulean", "Cobalt Blue", "Cyan", "Dark Blue", "Deep Blue", "Sky Blue", "Light Blue", "Navy", "Midnight", "Prussian Blue", "Robin Egg Blue", "Savoy Blue", "Sapphire", "Scotch Blue", "Stygian Blue", "Turquoise", "Zaffre",
+		"African Violet", "Amethyst", "French Violet", "Indigo", "Lavender", "Lavender Mist", "Lilac", "Nightmargin Purple", "Ibsidian", "Orchid", "Periwinkle", "Violet", "Wysteria", 
+		"Black", "Grey", "White", "Dark Grey", "Light Grey", "Ivory", "Porcelain", "Marble", ],
+	"Secondary Color": [ 
+		"None", 
+		"Blood Red", "Crimson", "Dark Red", "Fire Brick", "Maroon", "Scarlet", "Tuscan Red", 
+		"Amaranth", "Bubblegum Pink", "Deep Pink", "Hot Pink", "Magenta", "Raspberry", "Rose", "Salmon", 
+		"Apricot", "Bright Orange", "Coral", "Hyperbolic Orange", "India Saffron", "Mango", "Orange Red", "Peach", "Persimmon", "Vermillion", "Xanthous", 
+		"Auburn", "Bronze", "Burlywood", "Chestnut", "Chocolate", "Coffee", "Copper", "Mahogany", "Ochre", "Pullman Brown", "Russet", "Saddle Brown", "Sepia", "Taupe", 
+		"Amber", "Cream", "Gold", "Khaki", "Lemon", "Light Yellow", "Macaroni and Cheese", "Marigold", "Mustard", "Saffron", 
+		"Aquamarine", "Chartreuse", "Dark Green", "Erin", "Forest Green", "India Green", "Jade", "Lime", "Mint", "Olive", "Persian Green", "Spring Green", "Teal", "Viridian", "Xanadu", "Zomp", 
+		"Abyssal Blue", "Aqua", "Azure", "Baby Blue", "Blue Gray", "Cerulean", "Cobalt Blue", "Cyan", "Dark Blue", "Deep Blue", "Sky Blue", "Light Blue", "Navy", "Midnight", "Prussian Blue", "Robin Egg Blue", "Savoy Blue", "Sapphire", "Scotch Blue", "Stygian Blue", "Turquoise", "Zaffre",
+		"African Violet", "Amethyst", "French Violet", "Indigo", "Lavender", "Lavender Mist", "Lilac", "Nightmargin Purple", "Ibsidian", "Orchid", "Periwinkle", "Violet", "Wysteria", 
+		"Black", "Grey", "White", "Dark Grey", "Light Grey", "Ivory", "Porcelain", "Marble", ],"Placeholder": [ 
+		"",],
+	"Tertiary Color": [ 
+		"None", 
+		"Blood Red", "Crimson", "Dark Red", "Fire Brick", "Maroon", "Scarlet", "Tuscan Red", 
+		"Amaranth", "Bubblegum Pink", "Deep Pink", "Hot Pink", "Magenta", "Raspberry", "Rose", "Salmon", 
+		"Apricot", "Bright Orange", "Coral", "Hyperbolic Orange", "India Saffron", "Mango", "Orange Red", "Peach", "Persimmon", "Vermillion", "Xanthous", 
+		"Auburn", "Bronze", "Burlywood", "Chestnut", "Chocolate", "Coffee", "Copper", "Mahogany", "Ochre", "Pullman Brown", "Russet", "Saddle Brown", "Sepia", "Taupe", 
+		"Amber", "Cream", "Gold", "Khaki", "Lemon", "Light Yellow", "Macaroni and Cheese", "Marigold", "Mustard", "Saffron", 
+		"Aquamarine", "Chartreuse", "Dark Green", "Erin", "Forest Green", "India Green", "Jade", "Lime", "Mint", "Olive", "Persian Green", "Spring Green", "Teal", "Viridian", "Xanadu", "Zomp", 
+		"Abyssal Blue", "Aqua", "Azure", "Baby Blue", "Blue Gray", "Cerulean", "Cobalt Blue", "Cyan", "Dark Blue", "Deep Blue", "Sky Blue", "Light Blue", "Navy", "Midnight", "Prussian Blue", "Robin Egg Blue", "Savoy Blue", "Sapphire", "Scotch Blue", "Stygian Blue", "Turquoise", "Zaffre",
+		"African Violet", "Amethyst", "French Violet", "Indigo", "Lavender", "Lavender Mist", "Lilac", "Nightmargin Purple", "Ibsidian", "Orchid", "Periwinkle", "Violet", "Wysteria", 
+		"Black", "Grey", "White", "Dark Grey", "Light Grey", "Ivory", "Porcelain", "Marble", ],
+	"Quartiary Color": [ 
+		"None", 
+		"Blood Red", "Crimson", "Dark Red", "Fire Brick", "Maroon", "Scarlet", "Tuscan Red", 
+		"Amaranth", "Bubblegum Pink", "Deep Pink", "Hot Pink", "Magenta", "Raspberry", "Rose", "Salmon", 
+		"Apricot", "Bright Orange", "Coral", "Hyperbolic Orange", "India Saffron", "Mango", "Orange Red", "Peach", "Persimmon", "Vermillion", "Xanthous", 
+		"Auburn", "Bronze", "Burlywood", "Chestnut", "Chocolate", "Coffee", "Copper", "Mahogany", "Ochre", "Pullman Brown", "Russet", "Saddle Brown", "Sepia", "Taupe", 
+		"Amber", "Cream", "Gold", "Khaki", "Lemon", "Light Yellow", "Macaroni and Cheese", "Marigold", "Mustard", "Saffron", 
+		"Aquamarine", "Chartreuse", "Dark Green", "Erin", "Forest Green", "India Green", "Jade", "Lime", "Mint", "Olive", "Persian Green", "Spring Green", "Teal", "Viridian", "Xanadu", "Zomp", 
+		"Abyssal Blue", "Aqua", "Azure", "Baby Blue", "Blue Gray", "Cerulean", "Cobalt Blue", "Cyan", "Dark Blue", "Deep Blue", "Sky Blue", "Light Blue", "Navy", "Midnight", "Prussian Blue", "Robin Egg Blue", "Savoy Blue", "Sapphire", "Scotch Blue", "Stygian Blue", "Turquoise", "Zaffre",
+		"African Violet", "Amethyst", "French Violet", "Indigo", "Lavender", "Lavender Mist", "Lilac", "Nightmargin Purple", "Ibsidian", "Orchid", "Periwinkle", "Violet", "Wysteria", 
+		"Black", "Grey", "White", "Dark Grey", "Light Grey", "Ivory", "Porcelain", "Marble", ],
+	"Hairstyle": [ 
+		"Afro", "Afro Puffs", "Asymmetric Cut", 
+		"Braid", "Bald", "Balding", "Bangs", "Beehive", "Bob Cut", "Bouffant", "Bowl Cut", "Broccoli Cut", "Bunches", "Butch Cut", "Buzz Cut", "Big Hair", "Blowout", "Brush Cut", "Bun", 
+		"Cornrows", "Caesar Cut", "Chonmage", "Comb Over", "Comma Hair", "Conk", "Crew Cut", "Curtained Hair", "Chignon", "Croydon Facelift", "Crown Braid", 
+		"Dido Flip", "Ducktail", "Double Buns", "Devilock", "Dreadlocks", 
+		"Edgar Cut", "Eton Crop", "El Siete", "Extensions", 
+		"Fishtail Braid", "Finger Waves", "Fauxhawk", "Flattop", "French Crop", "Frosted Tips", "Fallera Hairdo", "Flipped-up Ends", "Feathered Hair", "Fontange", "French Braid", "French Twist", "Fringe", 
+		"Hi-top Fade", "Half Updo", "Hime Cut", "Highlights", 
+		"Ivy League", 
+		"Jheri Curl", 
+		"Layered Hair", "Liberty Spikes", "Lob", 
+		"Marcel Waves", "Mohawk", "Mop-top", "Mullet", 
+		"Odango", "Oseledets", 
+		"Pageboy", "Pixie Cut", "Pompadour", "Payot", "Perm", "Pigtails", "Ponyhawk", "Ponytail", "Psychobilly Wedge", "Plait", 
+		"Quiff", "Queue", 
+		"Shape-up", "Skin Fade", "Slick-back", "Space Buns", "Shag Cut", "Shingle Bob", "Step Cut", "Surfer Hair", 
+		"Titus Cut", "Tonsure", "Two-block", "The Rachel", "Rattail", "Razor Cut", "Ringlets", 
+		"Undercut", "Updo", 
+		"Waves", "Wings", "Weave", ],
+	"Body Type": [ 
+		"Triangle", "Inverted Triangle", "Rectangle", "Oval", "Hour Glass", "Ectomorph", "Mesomorph", "Endomorph", ],
 }
 
 var active_lists = []
@@ -188,8 +265,10 @@ func _ready():
 	start_generator()
 
 func start_generator():
-	active_lists = ["Gender Expression", "Species", ]
+	active_lists = ["Gender Expression", "Primary Color", "Secondary Color", "Species", ]
+	final_character = {}
 	current_list_index = 0
+	rolled_options = []
 	show_next_list()
 
 func show_next_list():
@@ -226,6 +305,14 @@ func user_picked(option):
 	final_character[list_name] = rolled_options[option]
 	current_list_index += 1
 	print(rolled_options[option])
+	if list_name == "Secondary Color":
+		if rolled_options[option] != "None":
+			var index = len(active_lists) - 1
+			active_lists.insert(index, "Tertiary Color")
+	if list_name == "Tertiary Color":
+		if rolled_options[option] != "None":
+			var index = len(active_lists) - 1
+			active_lists.insert(index, "Quartiary Color")
 	if list_name == "Species":
 		if rolled_options[option] == "Humanoid":
 			active_lists.append("Humanoid Subspecies")
